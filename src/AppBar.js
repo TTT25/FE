@@ -8,12 +8,13 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 //--------------------
 import clsx from 'clsx';
 import "./SilderBar/StyleSlideBar.css"
@@ -27,7 +28,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import MeetingRoomSharpIcon from '@material-ui/icons/MeetingRoomSharp';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
-import { FaGithub } from "react-icons/fa";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import  {Employee}  from "./Page/Employee";
+import {Department} from './Page/Department';
+import {Group} from './Page/Group';
+import {Report} from './Page/Report';
+import {Request} from './Page/Request';
+import {Task} from './Page/Task';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import ErrorIcon from '@material-ui/icons/Error';
+import SmsIcon from '@material-ui/icons/Sms';
 //-----------demo ---------------
 const useStylesDemo = makeStyles({
   list: {
@@ -203,41 +213,117 @@ export default function PrimarySearchAppBar() {
   };
   //--------demo--------------------------
 
-  const Employee =(text)=>{
-    if(text =="Employee"){
-      console.log("bạn vừa chọn trang nhân viên.");
-    }
-  }
+  // const Department = () => {
+  //   alert("Chuyen trang Department");
+  // }
+  // const Group = () => {
+  //   alert("Chuyen trang Group");
+  // }
+  // const Request = () => {
+  //   alert("Chuyen trang Request");
+  // }
+  // const Report = () => {
+  //   alert("Chuyen trang Report");
+  // }
+  // const Task = () => {
+  //   alert("Chuyen trang Task");
+  // }
+  //------hàm gọi component------------------ 
+
+
+
   //--------demo--------------------------
 
   const list = (anchor) => (
-    <div
-      className={clsx(classesDemo.list, {
-        [classesDemo.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Department', 'Employee', 'Group', 'Task', 'Request', 'Report'].map((text, index) => (
+    
+      <div
+        className={clsx(classesDemo.list, {
+          [classesDemo.fullList]: anchor === 'top' || anchor === 'bottom',
+        })}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+      >
+        <List>
+          {/*['Department', 'Employee', 'Group', 'Task', 'Request', 'Report'].map((text, index) => (
           <ListItem button key={text} onClick={Employee(text)}>
             <ListItemIcon>{index % 2 === 0 ? <MeetingRoomSharpIcon /> : <AccountBoxIcon />}</ListItemIcon>
             <ListItemText primary={text} />   
           </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['HELP'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <ContactSupportIcon /> : <AccountBoxIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
+        ))*/}
+          {/* -----------------Demo  */}
+          <Link to="/Department">
+          <ListItem>
+            <ListItemIcon>{"Department" % 2 === 0 ? <MeetingRoomSharpIcon /> : <MeetingRoomIcon />}</ListItemIcon>
+            <ListItemText primary={"Department"} />
           </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+          </Link>
+
+          <Link to="/Employee">
+            <ListItem >
+              <ListItemIcon>{"Employee" % 2 === 0 ? <SupervisedUserCircleIcon /> : <AccountBoxIcon />}</ListItemIcon>
+              <ListItemText primary={"Employee"} />
+            </ListItem>
+          </Link>
+
+          <Link to="/Group">
+          <ListItem>
+            <ListItemIcon>{"Group" % 2 === 0 ? <MeetingRoomSharpIcon /> : <SupervisedUserCircleIcon />}</ListItemIcon>
+            <ListItemText primary={"Group"} />
+          </ListItem>
+          </Link>
+
+          <Link to="/Task">
+          <ListItem>
+            <ListItemIcon>{"Task" % 2 === 0 ? <MeetingRoomSharpIcon /> : <ImportContactsIcon/>}</ListItemIcon>
+            <ListItemText primary={"Task"} />
+          </ListItem>
+          </Link>
+
+          <Link to="/Request">
+          <ListItem>
+            <ListItemIcon>{"Request" % 2 === 0 ? <MeetingRoomSharpIcon /> : < SmsIcon />}</ListItemIcon>
+            <ListItemText primary={"Request"} />
+          </ListItem>
+          </Link>
+          <Link to="/Report">
+          <ListItem>
+            <ListItemIcon>{"Report" % 2 === 0 ? <MeetingRoomSharpIcon /> : <ErrorIcon />}</ListItemIcon>
+            <ListItemText primary={"Report"} />
+          </ListItem>
+          </Link>
+         
+          {/* -----------------Demo  */}SmsIcon
+        </List>
+        <Divider />
+        <List>
+          {['HELP'].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>{index % 2 === 0 ? <ContactSupportIcon /> : <AccountBoxIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </div>
+   );
+  // const employee =()=>{
+  //   return <Employee/>
+  // }
+  // const department =()=>{
+  //   return <Department/>
+  // }
+  // const group =()=>{
+  //   return <Group/>
+  // }
+  // const task =()=>{
+  //   return <Task/>
+  // }
+  // const reprort =()=>{
+  //   return <Report/>
+  // }
+  // const request =()=>{
+  //   return <Request/>
+  // }
   //---------------------end demo----------------------------------------------
 
   /*const demo = () => {
@@ -254,20 +340,19 @@ export default function PrimarySearchAppBar() {
       </SwipeableDrawer>
     </React.Fragment>
   }*/
-
   return (
+    <Router>
     <div className={classes.grow}>
-
       <AppBar position="static">
         <Toolbar>
           <IconButton
-            // edge="start"
-            // className={classes.menuButton}
-            // color="inherit"
-            // aria-label="open drawer"
+          // edge="start"
+          // className={classes.menuButton}
+          // color="inherit"
+          // aria-label="open drawer"
           >
             {/* <MenuIcon /> bỏ này hoặc lấy dưới. */}
-            {["Menu",].map((anchor) => (
+            {["III",].map((anchor) => (
               <React.Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
                 <SwipeableDrawer
@@ -335,5 +420,13 @@ export default function PrimarySearchAppBar() {
       {renderMobileMenu}
       {renderMenu}
     </div>
+    <Route path="/Department" exact component={Department}/>
+    <Route path="/Employee" exact component={Employee}/>
+    <Route path="/Group" exact component={Group}/>
+    <Route path="/Task" exact component={Task}/>
+    <Route path="/Report" exact component={Report}/>
+    <Route path="/Request" exact component={Request}/>
+    </Router>
   );
+
 }

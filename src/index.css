@@ -1,9 +1,9 @@
 :root 
 {
   --black:#090909c;
-  --grey:#a4b2bc;
+  --grey:#fff;
   --white:#fff;
-  --background:rgba(137,171,245,0.37)
+  --background:#fff;
 }
 
 *,*::before,*::after{
