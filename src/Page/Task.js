@@ -5,11 +5,21 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { TaskRows } from "../../src/Data";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+// import AddIcon from '@material-ui/icons/Add';
+// import Controls from "../Page/Controls/Control"
+import {NewTask} from "./PopupNewTask/NewTask";
 export default function DataTable() {
 const [data,setData] = useState(TaskRows);
 const handleDelete = (id) =>{
   setData(data.filter(item=>item.id !== id));
+// const [openPopup, setOpenPopup] = useState(false);
+// const useStyles = makeStyles(theme => ({
+//     newButton:{
+//       position:'adsolute',
+//       right: '10px'
+//     }
 }
+
 
 const columns = [
   { field: "id", headerName: "ID", width: 130 },
@@ -90,24 +100,34 @@ const columns = [
         complete:"null", 
       },
   ];
-
+  
   return (
-    <div className="GroupListt" style={{ height: 400, width: '100%' }}>
+    
+    <div className="TaskListt" style={{ height: 400, width: '100%' }}>
       <DataGrid 
       rows={data} 
       disableSelectionOnClick 
       columns={columns} 
       pageSize={5} checkboxSelection />
-
+      
     </div>
     
   );
-}
+  }
+
 export class Task extends Component{
+ 
     render(){
         return(
             <div classname="Task">
                 <DataTable/>
+                <Link to="/newtask"><button className="TaskAddButton">Create</button>
+                    </Link>
+                {/* <NewTask
+                 openPopup = {openPopup}
+                  setOpenPopup = {setOpenPopup}>
+        
+                </NewTask> */}
             </div>
         )
     }

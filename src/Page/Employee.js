@@ -9,6 +9,8 @@ export default function DataTable() {
 const [data,setData] = useState(useRows);
 const handleDelete = (id) =>{
   setData(data.filter(item=>item.id !== id));
+
+
 }
 
 const columns = [
