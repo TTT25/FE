@@ -1,107 +1,114 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import './Task.css';   
+import React,{Component} from 'react'; 
+import { DataGrid } from '@material-ui/data-grid';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import { TaskRows } from "../../src/Data";
+import { Link } from "react-router-dom";
+import { useState } from 'react';
+export default function DataTable() {
+const [data,setData] = useState(TaskRows);
+const handleDelete = (id) =>{
+  setData(data.filter(item=>item.id !== id));
+}
 
-export default function Task() {
-    return ( <
-        React.Fragment >
-        <
-        Typography variant = "h6"
-        gutterBottom >
-        Shipping address <
-        /Typography> <
-        Grid container spacing = { 3 } >
-        <
-        Grid item xs = { 12 }
-        sm = { 6 } >
-        <
-        TextField required id = "firstName"
-        name = "firstName"
-        label = "First name"
-        fullWidth autoComplete = "given-name" /
-        >
-        <
-        /Grid> <
-        Grid item xs = { 12 }
-        sm = { 6 } >
-        <
-        TextField required id = "lastName"
-        name = "lastName"
-        label = "Last name"
-        fullWidth autoComplete = "family-name" /
-        >
-        <
-        /Grid> <
-        Grid item xs = { 12 } >
-        <
-        TextField required id = "address1"
-        name = "address1"
-        label = "Address line 1"
-        fullWidth autoComplete = "shipping address-line1" /
-        >
-        <
-        /Grid> <
-        Grid item xs = { 12 } >
-        <
-        TextField id = "address2"
-        name = "address2"
-        label = "Address line 2"
-        fullWidth autoComplete = "shipping address-line2" /
-        >
-        <
-        /Grid> <
-        Grid item xs = { 12 }
-        sm = { 6 } >
-        <
-        TextField required id = "city"
-        name = "city"
-        label = "City"
-        fullWidth autoComplete = "shipping address-level2" /
-        >
-        <
-        /Grid> <
-        Grid item xs = { 12 }
-        sm = { 6 } >
-        <
-        TextField id = "state"
-        name = "state"
-        label = "State/Province/Region"
-        fullWidth / >
-        <
-        /Grid> <
-        Grid item xs = { 12 }
-        sm = { 6 } >
-        <
-        TextField required id = "zip"
-        name = "zip"
-        label = "Zip / Postal code"
-        fullWidth autoComplete = "shipping postal-code" /
-        >
-        <
-        /Grid> <
-        Grid item xs = { 12 }
-        sm = { 6 } >
-        <
-        TextField required id = "country"
-        name = "country"
-        label = "Country"
-        fullWidth autoComplete = "shipping country" /
-        >
-        <
-        /Grid> <
-        Grid item xs = { 12 } >
-        <
-        FormControlLabel control = { < Checkbox color = "secondary"
-            name = "saveAddress"
-            value = "yes" / > }
-        label = "Use this address for payment details" /
-        >
-        <
-        /Grid> <
-        /Grid> <
-        /React.Fragment>
-    );
+const columns = [
+  { field: "id", headerName: "ID", width: 130 },
+  { field: "groupname", headerName: "Groupname", width: 160 },
+  { field: "leader", headerName: "Leader", width: 160 },
+  { field: "taskname", headerName: "Taskname", width: 180 },
+  { field: "date", headerName: "Date", width: 120 },
+  { field: "term",headerName: "Term", width: 180},
+  { field: "request", headerName: "Request", width: 180,
+        renderCell:(params)=>{
+        return(
+                <>
+                <button className="TaskListEdit">Download</button>
+                </>
+                )
+         },
+        },
+  { field: "complete", headerName: "Complete",width: 180, 
+      renderCell:(params)=>{
+    return(
+      <>
+      <button className="TaskListEdit">Download</button>
+      </>
+    )
+  }},
+  { field: "action",headerName: "Action",width: 180,
+        renderCell:(params)=>{
+          return(
+            <>
+            <Link to={"/Task/"+params.row.id}>
+            <button className="TaskListEdit">Edit</button>
+            </Link>
+            
+            <DeleteForeverIcon className="TaskListDelete" onClick={()=>handleDelete(params.row.id)}/>
+            </>
+          )
+        }
+
+      }
+  ];
+  
+  const rows = [
+    {
+      id: 1, 
+      groupname: 'Nhóm 3',
+      leader: "Đô Lâm",
+      taskname: "Thiết kế cơ sở dữ liệu",
+      request: "Null",
+      date:"01/01/2021",
+      term:"01/02/2021",
+      complete:"null",
+    },
+    {
+        id: 2, 
+        groupname: 'Nhóm 1',
+        leader: "Đô Lâm",
+        taskname: "Webside bán hàng",
+        date:"01/01/2021",
+        term:"01/02/2021",
+        complete:"null",  
+      },
+      {
+        id: 3, 
+        groupname: 'Nhóm 1',
+        leader: "Đô Lâm",
+        taskname: "Thiết kế cơ sở dữ liệu",
+        date:"01/01/2021",
+        term:"01/02/2021",
+        complete:"null",    
+      },
+      {
+        id: 4, 
+        groupname: 'Nhóm 1',
+        leader: "Đô Lâm",
+        taskname: "Thiết kế cơ sở dữ liệu",
+        date:"01/01/2021",
+        term:"01/02/2021",   
+        complete:"null", 
+      },
+  ];
+
+  return (
+    <div className="GroupListt" style={{ height: 400, width: '100%' }}>
+      <DataGrid 
+      rows={data} 
+      disableSelectionOnClick 
+      columns={columns} 
+      pageSize={5} checkboxSelection />
+
+    </div>
+    
+  );
+}
+export class Task extends Component{
+    render(){
+        return(
+            <div classname="Task">
+                <DataTable/>
+            </div>
+        )
+    }
 }

@@ -15,6 +15,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import "./AppBar.css"
 //--------------------
 import clsx from 'clsx';
 import "./SilderBar/StyleSlideBar.css"
@@ -29,7 +30,7 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import MeetingRoomSharpIcon from '@material-ui/icons/MeetingRoomSharp';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import  {Employee}  from "./Page/Employee";
+import { Employee }  from "./Page/Employee";
 import {Department} from './Page/Department';
 import {Group} from './Page/Group';
 import {Report} from './Page/Report';
@@ -149,8 +150,12 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+      <Link to={"/myprofile/"}>
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      </Link>
+      <Link to={"/myaccount/"}>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      </Link>
     </Menu>
   );
 
