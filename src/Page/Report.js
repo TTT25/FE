@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Gantt from '../component/Gantt';
+import './Gantt.css'
 // import './Report.css'
 // import { GanttComponent,TaskFieldsModel} from '@syncfusion/ej2-react-gantt';
 // import { projectData } from '../data/dataGantt';
