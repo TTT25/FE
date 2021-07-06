@@ -6,21 +6,19 @@ import './Gantt.css';
 
 export default class Gantt extends Component {
     componentDidMount() {
-        gantt.clearAll();
+
+        const { tasks } = this.props;
         gantt.init(this.ganttContainer);
-        gantt.parse(this.props.tasks);
+        gantt.parse(tasks);
     }
 
     render() {
         return ( <
             div ref = {
-                (input) => { this.ganttContainer = input }
-            }
+                (input) => { this.ganttContainer = input } }
             style = {
-                { width: '100%', height: '100%' }
-            } >
-            <
-            /div>
+                { width: '100%', height: '100%' } } >
+            < /div>
         );
     }
 }
