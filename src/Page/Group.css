@@ -28,3 +28,14 @@
     color: red;
     cursor: pointer;
 }
+.GroupAddButton{
+    width: 100px ;
+    height: 40px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    border-radius: 40px;
+    cursor:pointer;
+    color: white;
+    font-size: 20px;
+}

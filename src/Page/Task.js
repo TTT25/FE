@@ -5,9 +5,10 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { TaskRows } from "../../src/Data";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import { NewTask } from './PopupNewTask/NewTask';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 // import AddIcon from '@material-ui/icons/Add';
 // import Controls from "../Page/Controls/Control"
-import {NewTask} from "./PopupNewTask/NewTask";
 export default function DataTable() {
 const [data,setData] = useState(TaskRows);
 const handleDelete = (id) =>{
@@ -121,6 +122,7 @@ export class Task extends Component{
         return(
             <div classname="Task">
                 <DataTable/>
+                <Route path=""><NewTask/></Route>
                 <Link to="/newtask"><button className="TaskAddButton">Create</button>
                     </Link>
                 {/* <NewTask

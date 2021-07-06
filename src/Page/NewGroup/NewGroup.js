@@ -1,45 +1,45 @@
-import "./NewDep.css"
+import "./NewGroup.css"
 import React,{Component} from 'react';
 
-export class NewDep extends Component{
+export class NewGroup extends Component{
     render(){
         return(
-            <div className="newDep">
-               <h1 className="newDepTitle">New Dep</h1>
-               <from className="newDepFrom">
-                   <div className="newDepItem">
-                       <label>Department Name</label>
+            <div className="newGroup">
+               <h1 className="newGroupTitle">New Group</h1>
+               <from className="newGroupFrom">
+                   <div className="newGroupItem">
+                       <label>Group Name</label>
                        <input type="text" placeholder="Thành"/>
                    </div>
 
-                   <div className="newDepItem">
+                   <div className="newGroupItem">
                        <label>Leader Name</label>
                        <input type="text" placeholder="Tuấn Thành"/>
                    </div>
 
-                   <div className="newDepItem">
+                   <div className="newGroupItem">
                        <label>Email</label>
                        <input type="Email" placeholder="tuanthanh@gmail.com"/>
                    </div>
 
-                   <div className="newDepItem">
+                   <div className="newGroupItem">
                        <label>Phone</label>
                        <input type="text" placeholder="+84 964 507 389"/>
                    </div>
-                   <div className="newDepItem">
+                   <div className="newGroupItem">
                        <label>Number of member</label>
                        <input type="text" placeholder="+84 964 507 389"/>
                    </div>
 
                   
-                   <div className="newDepItem">
+                   <div className="newGroupItem">
                    <label>Active</label>
-                   <select className="newDepSelect" name="active" id="active">
+                   <select className="newGroupSelect" name="active" id="active">
                        <option value="yes">Yes</option>
                        <option value="no">No</option>
                    </select>
                    </div>
-                   <button className="newDepButton">Create</button>
+                   <button className="newGroupButton">Create</button>
                </from>
             </div>
         )

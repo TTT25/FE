@@ -1,12 +1,12 @@
-.newTask{
+.newGroup{
     flex: 4;
     
 }
 
-.newTaskTitle{
+.newGroupTitle{
         text-align: center;
 }
-.newTaskFrom{
+.newGroupFrom{
     display:flex; 
     flex-wrap:wrap ;
     padding: 0 400px 0 400px;
@@ -14,7 +14,7 @@
     
 }
 
-.newTaskItem{
+.newGroupItem{
     width: 400;
     display: flex;
     flex-direction: column;
@@ -22,14 +22,14 @@
     margin-right: 10px;
 }
 
-.newTaskItem>label{
+.newGroupItem>label{
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 600;
     color: rgb(151 ,150,150);
 }
 
-.newTaskItem>input{
+.newGroupItem>input{
     height: 30px;
     width: 300px;
     padding: 10px;
@@ -38,21 +38,21 @@
      
 }
 
-.newTaskGender>label{
+.newGroupGender>label{
     margin: 10px;
     font-size: 18px;  
     color: #555;      
 }
 
-.newTaskSelect{
+.newGroupSelect{
     height: 30px;
     width: 135px;
     border-radius: 5px;
 }
 
 
-.newTaskButton{
-    width: 200px;
+.newGroupButton{
+    width: 155px;
     height: 40px;
     margin-top: 30px ;
     background-color: rgb(29, 72, 143);

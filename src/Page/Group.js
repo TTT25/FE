@@ -30,6 +30,7 @@ const columns = [
         renderCell:(params)=>{
           return(
             <>
+            {/* <Route path="/roup/:userID"><DepEdit/></Route> */}
             <Link to={"/Group/"+params.row.id}>
             <button className="GroupListEdit">Edit</button>
             </Link>
@@ -97,6 +98,8 @@ export class Group extends Component{
         return(
             <div classname="Group">
                 <DataTable/>
+                <Link to="/newgroup"><button className="GroupAddButton">Create</button>
+                    </Link>
             </div>
         )
     }
