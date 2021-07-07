@@ -39,7 +39,6 @@ import {Task} from './Page/Task';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import ErrorIcon from '@material-ui/icons/Error';
 import SmsIcon from '@material-ui/icons/Sms';
-import SignIn from './Page/Singin/SignIn';
 //-----------demo ---------------
 const useStylesDemo = makeStyles({
   list: {
@@ -157,11 +156,10 @@ export default function PrimarySearchAppBar() {
       <Link to={"/myaccount/"}>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
       </Link>
-      <Route path="/login"><SignIn/>Login</Route>
       <Link to={"/login/"}>
       <MenuItem onClick={handleMenuClose}>Login</MenuItem>
       </Link>
-    </Menu>
+     </Menu>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';

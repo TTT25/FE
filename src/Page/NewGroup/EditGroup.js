@@ -7,8 +7,7 @@ export class EditGroup extends Component{
             <div classname="GroupEdit">
                 <div className="GroupTitleContainer">
                     
-                    <Link to="/newGroup"><button className="GroupAddButton">Create</button>
-                    </Link>
+                  
                     
                 </div>
                 <div className="GroupContainer">
