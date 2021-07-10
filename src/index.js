@@ -2,23 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import SignIn from './SignIn';
+import SignIn from './Component/SignIn';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render( <
-    React.StrictMode >
-    <
-    
-    App / >
-    <
-    /React.StrictMode>,
+ReactDOM.render( <React.StrictMode > <SignIn/></React.StrictMode>,
     document.getElementById('root')
 );
-<<<<<<< HEAD
 
-=======
-// m tìm file của m phải hk
->>>>>>> 1361408e3f8ea55de7b298cf84f8e5a40af3c8e5
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
