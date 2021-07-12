@@ -15,12 +15,7 @@ const data = {
 
 export class Report extends Component {
     render() {
-        return ( <
-            div className = "gantt-container" >
-            <
-            Gantt tasks = { data }
-            /> <
-            /div>
+        return ( <div className = "gantt-container" ><Gantt tasks = { data }/> </div>
 
         );
     }
