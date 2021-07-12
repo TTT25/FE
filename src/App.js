@@ -12,13 +12,11 @@ import { TaskEdit } from './Page/PopupNewTask/TaskEdit';
 import { DepEdit } from './Page/NewDep/DepEdit';
 import { EditGroup } from './Page/NewGroup/EditGroup';
 import { NewGroup } from './Page/NewGroup/NewGroup';
-import SignIn from './Page/Singin/SignIn';
-
+import SignIn from './Component/SignIn';
 function App() {
 
   return(
     <BrowserRouter>
-     <Route path="/login"><SignIn/>Login</Route>
     <div><AppBar/></div>
     <div>
         <Switch>
